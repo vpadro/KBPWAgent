@@ -1,0 +1,36 @@
+.form-search-user{
+	width: 500px;
+	display: inline-block;
+}
+.form-control-lg{
+	min-height: 2.675rem;
+}
+.form-icon-search{
+	display: inline-block;
+}
+.btn-search{
+	padding: 0.705rem 1.5rem;
+	margin-left: 20px;
+}
+.btn-button-dark:hover{
+	background: #1F3BB3;
+	border: 1px solid #CADDFF;
+	color: #ffffff ;
+}
+.card-grey{
+	background-color: #1E283D  !important;
+}
+.text-info-card{
+	color:white;
+}
+.text-title-card{
+	color: #eaeaea;
+}
+.card-client{
+	margin-top:40px
+}
+
+.btn-client{
+	padding: 0.705rem 1.5rem;
+	float: right;
+}

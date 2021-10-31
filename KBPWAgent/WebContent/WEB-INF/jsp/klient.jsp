@@ -11,10 +11,13 @@
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <link rel="stylesheet" href="resources/template-star-admin/vendors/mdi/css/materialdesignicons.min.css">
       <link rel="stylesheet" href="resources/template-star-admin/vertical-layout-light/style.css">
       <link rel="stylesheet" href="resources/css/main.css">
        <spring:url value="resources/font-awesome/css/all.min.css" var="fontCSS" />
       <link href="${fontCSS}" rel="stylesheet" />
+       <spring:url value="resources/client/clinet.css" var="clinetCSS" />
+      <link href="${clinetCSS}" rel="stylesheet" />
    </head>
    <body>
       <body class="sidebar-icon-only">
@@ -27,48 +30,70 @@
                <!-- partial -->
                <div class="main-panel">
                   <div class="content-wrapper">
+                  <div class="row">
+                        <div class="col-sm-10">
+                        <div class="form-group form-search-user">	
+		                    <input type="text" class="form-control form-control-lg" placeholder="Wyszukaj klienta" aria-label="Username">
+		                 </div>
+		                 <div class="form-icon-search">
+		                 <span id="search-buttom-id" class="btn btn-primary text-white me-0 btn-search"><span><i class="fas fa-search"></i></span> Wyszukaj</span>
+		                 
+		                 </div>
+                  	</div>
+                  	 <div class="col-sm-2">
+                  	  	  <span  class="btn btn-primary text-white me-0 btn-client"><i class="fas fa-user-plus"></i> Dodaj klienta</span>
+                  	 </div>
+                  </div>
+                <div class="row card-client">                                                                   
+                 <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                            <div class="card bg-primary card-rounded card-grey">
+                              <div class="card-body ">
+                                <div class="row">
+                                  <div class="col-sm-3">
+                                    <p class="status-summary-ight-white mb-1 text-title-card ">Imie nazwisko/Nazwa</p>
+                                    <h2 class="text-info-card ">Adam Nowak </h2>
+                                  </div>
+                                  <div class="col-sm-3">
+                                    <p class="status-summary-ight-white mb-1 text-title-card ">Adres</p>
+                                    <h2 class="text-info-card">Łódź, Piotrkowska 123 m 45</h2>
+                                  </div>
+                                  <div class="col-sm-3">
+                                    <p class="status-summary-ight-white mb-1 text-title-card ">Pesel/regon</p>
+                                    <h2 class="text-info-card">78121311632</h2>
+                                  </div>
+                                  <div class="col-sm-3">
+                                    <p class="status-summary-ight-white mb-1 text-title-card ">Typ klienta</p>
+                                    <h2 class="text-info-card">Osoba fizyczna</h2>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>              
+                    </div>
                      <div class="row">
                         <div class="col-sm-12">
                            <div class="home-tab">
                               <div class="d-sm-flex align-items-center justify-content-between border-bottom">
                                  <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item">
-                                       <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Powiadomienie o końcu polisy</a>
+                                       <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Polisy</a>
                                     </li>
                                     <li class="nav-item">
-                                       <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab" aria-selected="false">Terminowość spłat</a>
+                                       <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab" aria-selected="false">Pojazdy</a>
+                                    </li>
+                                     <li class="nav-item">
+                                       <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab" aria-selected="false">Dane kontaktowe</a>
                                     </li>
                                  </ul>
                                  <div>
                                     <div class="btn-wrapper">
-                                       <a href="#" class="btn btn-otline-dark"><i class="fas fa-print"></i> Print</a>
-                                       <a href="#" class="btn btn-primary text-white me-0"><i class="fas fa-download"></i> Export</a>
+                                       <span  class="btn btn-otline-dark btn-button-dark"><i class="far fa-file-alt"></i>Dodaj polisę</span>
+                                       <span  class="btn btn-otline-dark btn-button-dark"><i class="fas fa-car"></i> Dodaj pojazd</span>
                                     </div>
                                  </div>
                               </div>
                               <div class="tab-content tab-content-basic">
                                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
-                                    <div class="row">
-                                       <div class="col-sm-4">
-                                          <div class="statistics-details d-flex align-items-center justify-content-between">
-                                                <c:forEach var="listInsStat" items="${model.listEndInsurStat}" varStatus="loop">	  
-														 <div>
-				                                             <p class="statistics-title">Liczba polis</p>
-														       <h3 class="rate-percentage text-right">${ listInsStat.nrPolis}</h3>                                           
-				                                           </div>
-				                                           <div>
-				                                               <p class="statistics-title">Liczba klientów</p>
-				                                               <h3 class="rate-percentage text-right">${ listInsStat.nrClient}</h3>
-				                                           </div>
-				                                           <div class="d-none d-md-block">
-				                                               <p class="statistics-title">Polisy samochodowe</p>
-				                                               <h3 class="rate-percentage text-right">${ listInsStat.nrCar}</h3>
-				                                           </div>
-									             </c:forEach>
-                                          </div>
-                                       </div>
-
-                                    </div>
                                     <div class="row">
                                        <div class="col-lg-12 grid-margin stretch-card">
                                           <div class="card">
@@ -77,27 +102,28 @@
                                                    <table class="table table-striped">
                                                       <thead>
                                                          <tr>
-                                                            <th>  Nazwa kliena ubezp.</th>
-                                                            <th> Firma ubezp. </th>
                                                             <th>Numer polisy</th>
-                                                            <th>Data końca </th>
-                                                            <th> Rodzaj klinta</th>
-                                                            <th> Liczba rat </th>
-                                                            <th> Numer telefonu </th>
+                                                            <th> Przedmiot ubezp.</th>
+                                                            <th>Okres </th>
+                                                            <th>Firma ubezp.</th>
+                                                            <th> Termin </th>
+                                                            <th>Składka  </th>
+                                                            <th>  </th>
                                                          </tr>
                                                       </thead>
                                                       <tbody>
-														<c:forEach var="listaIns" items="${model.listEndInsur}" varStatus="loop">
-														  <tr>
-														    <td >${listaIns.userName} </td>
-														    <td >${listaIns.companyInsName} </td>
-														     <td >${listaIns.nrPolisy} </td>
-														    <td >${listaIns.endDate} </td>
-														    <td>${listaIns.typeClient} </td>
-														    <td>${listaIns.numberInstalments}  </td>
-														    <td>${listaIns.privatePhoneNumber}  </td>
-														 </tr>
-														</c:forEach>
+           
+                                                         <tr>
+                                                            <td >12345612 </td>
+                                                            <td class="text-right">6 764</td>
+                                                            <td>2021-10-20 </td>
+                                                            <td>Osoba fiyczna</td>
+                                                            <td>Adam Nowak </td>
+                                                            <td>Adam Nowak </td>
+                                                             <td>
+                                                            	<span class="icon-send" ><i class="menu-icon mdi mdi mdi-email-outline"></i></span>
+                                                             </td>
+                                                         </tr>
                                                       </tbody>
                                                    </table>
                                                 </div>
@@ -150,6 +176,12 @@
          <script src="${templateJS}"></script>
          <spring:url value="resources/template-star-admin/vendors/js/hoverable-collapse.js" var="collapseJS" />
          <script src="${collapseJS}"></script>
+         <spring:url value="resources/client/client.js" var="clientJS" />
+         <script src="${clientJS}"></script>
+               <script type='text/javascript'>
+          console.log(JSON.stringify(${model.tekstyJson} ))
+         
+      </script>
          
    </body>
 </html>

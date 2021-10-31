@@ -1,13 +1,13 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="./pulpit">
              <i class="sidebar-icon fa fa-home" aria-hidden="true"></i>
               <span class="menu-title text-icon-menu">Pulpit</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./klient">
               <i class="sidebar-icon fas fa-user" aria-hidden="true"></i>
               <span class="menu-title text-icon-menu">Klient</span>
             </a>

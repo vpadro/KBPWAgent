@@ -1,9 +1,11 @@
 package kbpw.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +22,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
+import kbpw.service.ListClientSearch;
+import kbpw.service.ListStartInformation;
+
 
 @Controller
 public class AppController {
@@ -29,8 +34,17 @@ public class AppController {
 	}
 	@GetMapping({"/pulpit"})
 	public ModelAndView ggaulpits(HttpServletRequest request, HttpSession session) throws JsonProcessingException {
-		System.out.println("test");
-		return new ModelAndView("pulpit", "model", null);
+		Map<String, Object> model = new HashMap<String, Object>();
+		ListStartInformation results = new ListStartInformation(session);
+		model.put("listEndInsur", results.getListEndInsurance() );
+		model.put("listEndInsurStat", results.getListEndInsuranceStat() );
+		return new ModelAndView("pulpit", "model", model);
 	}
-
+	@GetMapping({"/klient"})
+	public ModelAndView gklient(HttpServletRequest request, HttpSession session) throws JsonProcessingException {
+		Map<String, Object> model = new HashMap<String, Object>();
+		ListClientSearch results = new ListClientSearch(session,"");
+		model.put("tekstyJson", results.listaClientToJSON());
+		return new ModelAndView("klient", "model", model);
+	}
 }
